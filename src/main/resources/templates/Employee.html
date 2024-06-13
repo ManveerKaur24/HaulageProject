@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+		integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- Remix Icon CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+	<link th:href="@{/css/toast.css}" rel="stylesheet">
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/custom_table.css}">
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+</head>
+
+<body>
+
+	<div th:replace="Sidebar :: navbar"></div>
+	<main class="d-flex">
+		<div class="main-content  p-4 ">
+			<div class="alert-box  text-center">
+				Welcome to New <span style="padding-right: 5px;padding-left: 5px;">ERP</span> Portal
+			</div>
+
+			<!-- Main Page Data  -->
+
+			<!-- Form Starts Here  -->
+
+			<form th:action="@{addemployee}" th:object="${employee}" method="post" id="myForm">
+				<input type="hidden" th:field="*{id}">
+				<!-- Main Data Container -->
+
+				<div class="data-container p-4 ">
+					<div class="row justify-content-center">
+						<div class="col-md-10 	col-sm-4">
+
+						<!-- Courier Row 2 -->
+							<div class="row differ my-2 justify-content-between " style="border: none; ">
+
+								<!-- 2nd Row 1st Column Start -->
+								<div class="col-md-12 differ  pb-3">
+									<div class="row">
+										<div class="col-md-12  mybg-secondary py-2 mb-3">
+											<div class="head ">
+												ADD EMPLOYEE(s)
+											</div>
+										</div>
+									</div>
+
+									<div class="row justify-content-between gap-1">
+										<div class="col-md-12 col-sm-4">
+											<!-- for lable and input  -->
+											<div class="row">
+												<div class="col-md-4">
+													<label for="Name" class="org-form-label my-2 ">Name</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="addmission-date" th:field="*{empname}"
+														id="addmission-date"
+														class="form-control org-form-input add-org-form-input">
+													<span id="Sender_Name" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+
+										<!-- Phone Column Start  -->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="phone" class="org-form-label my-2 ">Phone</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="phone" id="phone" th:field="*{empcontact}"
+														class="form-control org-form-input add-org-form-input">
+													<span id="MobileNo-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+										<!-- Phone Column End  -->
+
+
+										<!-- Email Column Start  -->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="Email" class="org-form-label my-2 ">Email</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="Email" id="Email" th:field="*{empemail}"
+														class="form-control org-form-input add-org-form-input">
+													<span id="Email-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+										<!-- Email Column End  -->
+
+
+										<!-- Address Line 1 Column Start  -->
+
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="Email" class="org-form-label my-2 ">Designation</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="designation" id="designation"
+														th:field="*{empdesignation}"
+														class="form-control org-form-input add-org-form-input">
+													<span id="designation-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="address1" class="org-form-label my-2 ">Address Line
+														1</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="address1" id="address1"
+														th:field="*{empAddressLine1}"
+														class="form-control org-form-input add-org-form-input">
+													<span id="address1-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+										<!-- Address Line 1 Column End  -->
+
+
+										<!-- Address Line 2 Column Start  -->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="address2" class="org-form-label my-2 ">Address Line
+														2</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="address2" id="address2"
+														th:field="*{empAddressLine2}"
+														class="form-control org-form-input add-org-form-input">
+													<span id="address1-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+										<!-- Address Line 2 Column End  -->
+
+
+										<!-- Country Column Start -->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="country" class="org-form-label my-2 ">Country</label>
+												</div>
+												<div class="col-md-7">
+													<select name="country" id="country"
+														th:field="*{employee_District.state.country.id}"
+														class="form-select org-form-input add-org-form-input"
+														onchange="getState(this.value,'state.id');">
+														<option value="">select country</option>
+														<option th:each="i:${countrylist}" th:value="${i.id}"
+															th:text="${i.countryName }"></option>
+													</select>
+													<span id="country-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+										<!-- Country Column End -->
+
+
+										<!--State Column Start -->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="State" class="org-form-label my-2 ">State</label>
+												</div>
+												<div class="col-md-7">
+													<select name="State" id="state"
+														class="form-select org-form-input add-org-form-input"
+														th:field="*{employee_District.state.id}"
+														tonchange="getdistrict(this.value,'state.district.id')">
+														<option value="">select state</option>
+														<option th:each="i:${statelist}" th:value="${i.id}"
+															th:text="${i.stateName }"></option>
+
+													</select>
+													<span id="State-error" class="State-message"></span>
+												</div>
+											</div>
+										</div>
+										<!-- State Column End 
+
+										 District Column Start-->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="State" class="org-form-label my-2 ">District</label>
+												</div>
+												<div class="col-md-7">
+													<select name="District" id="district"
+														class="form-select org-form-input add-org-form-input"
+														th:field="*{employee_District.id}"
+														onchange="getdistrict(this.value,'state.district.id')">
+														<option value="">select District</option>
+														<option th:each="i:${districtlist}" th:value="${i.id}"
+															th:text="${i.districtName }"></option>
+
+													</select>
+													<span id="District-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+										<!--District Column End 
+
+
+										 City Column Start -->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="pincode" class="org-form-label my-2 ">City</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="City" id="City" th:field="*{city}"
+														class="form-control org-form-input add-org-form-input">
+													<span id="pincode-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+										<!--City Column Start  
+
+
+										 Pin code Column Start  -->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="pincode" class="org-form-label my-2 ">Pin
+														Code</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="pincode" id="pincode" th:field="*{Pincode}"
+														class="form-control org-form-input add-org-form-input">
+													<span id="pincode-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+										<!-- Pin code Column Start  
+
+
+										
+										<!-- Form Button Control -->
+
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<button type="submit" class="btn btn-success p-2 " style="font-size: 14px;">ADD Employee</button>
+				</div>
+
+
+			</form>
+			<!-- -table - -->
+			<div class="col-md-12 col-lg-12 px-1 py-0">
+				<table class="table table-bordered mt-2 table-hover">
+					<thead>
+						<tr>
+							<th class="table-head">id</th>
+							<th class="table-head">Name</th>
+							<th class="table-head">Email</th>
+							<th class="table-head">Contact</th>
+							<th class="table-head">Designation</th>
+							<th class="table-head">Update/Delete</th>
+						</tr>
+					</thead>
+					<tbody class="border">
+						<tr th:each="i : *{emplist}">
+							<td th:text="*{i.id}"></td>
+							<td th:text="*{i.empname}"></td>
+							<td th:text="*{i.empemail}"></td>
+							<td th:text="*{i.empcontact}"></td>
+							<td th:text="*{i.empdesignation}"></td>
+
+							<td class="table-text ">
+								<div class="d-flex">
+									<a th:href="@{update(id = ${i.id})}" class="px-2"> <span><i class="material-icons"
+												style="color:springgreen">update</i></span> </a>
+									<a th:href="@{delete(id = ${i.id})}" class="px-2"> <span><i class="material-icons"
+												style="color:red">delete</i></span> </a>
+
+							</td>
+						</tr>
+					</tbody>
+
+				</table>
+
+				<!--   <div class="card-body">
+							<table class="table" border="3">
+								<thead>
+									<tr>
+										<td>Id</td>
+										<td> Name</td>
+										<td>contact</td>
+										<td>Designation</td>
+
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr th:each="i : *{districtList}">
+										<td th:text="*{i.id}"></td>
+										<td th:text="*{i.state.country.countryName}"></td>
+										<td th:text="*{i.state.stateName}"></td>
+										<td th:text="*{i.districtName}"></td>
+
+										<td><a th:href="@{update(id=${i.id})}"
+											class="btn btn-success">Update</a> <a
+											th:href="@{delete(id=${i.id})}" class="btn btn-danger">Delete</a>
+										<td>
+									</tr>
+								</tbody>
+							</table>
+						</div> -->
+				<!--  table ends-->
+
+
+			</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+
+	</main>
+
+	<!--Script  -->
+	<script th:src="@{/js/custom.js}"></script>
+
+
+</body>
+
+</html>

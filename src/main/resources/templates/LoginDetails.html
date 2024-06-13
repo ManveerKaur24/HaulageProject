@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link th:href="@{/css/login.css}" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="root  d-flex align-items-center ">
+        <div class="container d-flex sub-root">
+           <!--  <div class="row justify-content-around align-items-center m-auto">
+                <div class="col-md-6 ">
+                    <div class="d-flex flex-column ">
+                        <div class="d-flex">
+                            <img th:src="@{/img/logo.png}" alt="" class="logo img-fluid" style="height: 60px;">
+                        </div>
+                        <h2 class="para pt-4">
+                            #1 Best ERP Solutions for desk, mobile & remote teams.
+                        </h2>
+                        <div class="mt-5 ">
+                            <img th:src="@{/img/herosvg.svg}" class="img-fluid hero-img" alt=""  >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-lg-12 p-0">
+                    Sign In
+                     <div class="container form-container sign-in">
+                        <div class="log-options py-3">
+                            <h3 class="text-center">
+                                Lo<span class="logo-color2">gin</span> Portal
+                            </h3>
+                        </div>
+                        <form th:action="@{checkLogin}" method="post">
+                            <div class="d-flex flex-column form-input-container my-4 p-0 px-2">
+                                <div class="input-container p-2">
+                                    <input type="text" placeholder="Username" name="username" id="username" required>
+                                </div>
+                                <div class="input-container p-2">
+                                    <input type="password" placeholder="Password" name="password" id="password"  required>
+                                    <div class="eye-container" >
+                                        <img src="./img/eye.svg" class="eye" alt=""  onclick="togglePassword()">
+                                    </div>
+                                </div>
+                                <div class="fpass-cont">
+                                    <a href="./forgot-password.html" class="forgot-a"> Forget Password?</a>
+                                </div>
+
+                                <div class="btn-container mt-5">
+                                    <button type="submit" class="btn" >Let me Sign In</button>
+                                </div>
+                                 <center><span style="color:red;" th:text="${message}"></span></center>
+                            </div>
+                           
+                        </form>
+                        
+                        
+                        
+                    </div> 
+                </div>
+            </div>
+         -->
+        <div class="container form-container sign-in" style="max-width:500px; margin:auto;">
+                        <div class="log-options py-3">
+                            <h3 class="text-center">
+                                Lo<span class="logo-color2">gin</span> Portal
+                            </h3>
+                        </div>
+                        <form th:action="@{/checkLogin}" method="post">
+                            <div class="d-flex flex-column form-input-container my-4 p-0 px-2">
+                                <div class="input-container p-2">
+                                    <input type="text" placeholder="Username"  name="username" id="username" required>
+                                </div>
+                                <div class="input-container p-2">
+                                    <input type="password" placeholder="Password" name="password" id="password"  required>
+                                    <div class="eye-container" >
+                                        <img src="./img/eye.svg" class="eye" alt=""  onclick="togglePassword()">
+                                    </div>
+                                </div>
+                                <div class="fpass-cont">
+                                    <a href="./forgot-password.html" class="forgot-a"> Forget Password?</a>
+                                </div>
+
+                                <div class="btn-container mt-5">
+                                    <button type="submit" class="btn" >Let me Sign In</button>
+                                </div>
+                                 <center><span style="color:red;" th:text="${message}"></span></center>
+                            </div>
+                           
+                        </form>
+                        
+                        
+                        
+                    </div> 
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    <script>
+        function togglePassword() {
+            var passwordInput = document.getElementById("pass");
+            var eyeIcon = document.querySelector(".eye");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.src = "./img/close_eye.svg"; // Change this to your "eye-off" icon path
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.src = "./img/eye.svg"; // Change this to your "eye" icon path
+            }
+        }
+    </script>
+ 
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+ <div th:switch="${action}">
+
+	 <div th:case="'getState'">
+	 	<option value="">--- Select State ---</option>
+	 	<option th:each="i : ${stateList}" th:value="${i.id}" th:text="${i.stateName}"></option>
+	 </div>
+ 
+ <div th:case="'getDistrict'">
+	 	<option value="">--- Select District ---</option>
+	 	<option th:each="i : ${districtList}" th:value="${i.id}" th:text="${i.districtName}"></option>
+	 </div>
+ 
+</div> 
+</html>

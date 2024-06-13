@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Haulage Service</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	<link th:href="@{/css/toast.css}" rel="stylesheet">
+
+	<!-- Remix Icon CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<link rel="stylesheet" href="./custom_table.css">
+
+</head>
+
+<body>
+	<div th:replace="Sidebar :: navbar"></div>
+
+	<main class="d-flex">
+		<!-- Body  -->
+		<div class="main-content  p-0 ">
+			<div class="alert-box  text-center">
+				Welcome to New <span style="padding-right: 5px;padding-left: 5px;">ERP</span> Portal
+			</div>
+
+			<!-- Main Page Data  -->
+			<div class="container-fluid px-3 p-0 pb-5">
+				<div class="d-flex flex-wrap gap-2 page-header justify-content-between align-items-center">
+					<h3 class="page-heading">
+						&#x276F; Haulage Service
+					</h3>
+					<p class="header-date m-0 " id="current-date"></p>
+				</div>
+
+				<div class="d-flex mb-3">
+					<a href="#" class="back-arrow pback" onclick="goBack()">
+						<i class="ri-arrow-left-line"></i> <span class=" px-3">Back to Previous Page</span>
+					</a>
+				</div>
+				<form th:action="@{saveService}" th:object="${haulage}" method="post" id="myForm">
+					<input type="hidden" th:field="*{id}">
+
+					<!-- Main Data Container -->
+
+					<!-- Courier Row 2 -->
+					<div class="row differ my-2 justify-content-between " style="border: none; ">
+
+						<div class="row justify-content-between gap-1">
+							<div class="col-md-12 col-sm-4">
+								<!-- for lable and input  -->
+								<div class="row">
+									<div class="col-md-4">
+										<label for="HaulageService" class="org-form-label my-2 ">Haulage
+											Service/Plan*</label>
+									</div>
+									<div class="col-md-7">
+										<input type="text" name="addmission-date" th:field="*{Service}"
+											id="addmission-date" class="form-control org-form-input add-org-form-input">
+										<span id="Service" class="error-message"></span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Min Days Column Start  -->
+							<div class="col-md-12 col-sm-4">
+								<div class="row">
+									<div class="col-md-4">
+										<label for="phone" class="org-form-label my-2 ">Min Days*</label>
+									</div>
+									<div class="col-md-7">
+										<input type="text" name="Min_days" id="Min_days" th:field="*{Min_days}"
+											class="form-control org-form-input add-org-form-input">
+										<span id="MobileNo-error" class="error-message"></span>
+									</div>
+								</div>
+							</div>
+							<!-- Min Days Column End  -->
+
+
+							<!-- Max_days Column Start  -->
+							<div class="col-md-12 col-sm-4">
+								<div class="row">
+									<div class="col-md-4">
+										<label for="Email" class="org-form-label my-2 ">Max Days*</label>
+									</div>
+									<div class="col-md-7">
+										<input type="text" name="Max_days" id="Max_days" th:field="*{Max_days}"
+											class="form-control org-form-input add-org-form-input">
+										<span id="Email-error" class="error-message"></span>
+									</div>
+								</div>
+							</div>
+							<!-- Max_days Column End  -->
+
+
+							<!-- Additional Charges Column Start  -->
+							<div class="col-md-12 col-sm-4">
+								<div class="row">
+									<div class="col-md-4">
+										<label for="add" class="org-form-label my-2 ">Additional Charges(if Any)*
+										</label>
+									</div>
+									<div class="col-md-7">
+										<input type="text" name="add" id="add" th:field="*{Charges}"
+											class="form-control org-form-input add-org-form-input">
+										<span id="address1-error" class="error-message"></span>
+									</div>
+								</div>
+							</div>
+							<!-- Additional Charges Column End  -->
+
+
+							<!-- Description Column Start  -->
+							<div class="col-md-12 col-sm-4">
+								<div class="row">
+									<div class="col-md-4">
+										<label for="address2" class="org-form-label my-2 ">Little Description*
+										</label>
+									</div>
+									<div class="col-md-7">
+										<input type="text" name="Description" id="Description" th:field="*{Description}"
+											class="form-control org-form-input add-org-form-input">
+										<span id="address1-error" class="error-message"></span>
+									</div>
+								</div>
+							</div>
+							<!-- Description Column End  -->
+						</div>
+						<!-- Form Button Controls  -->
+						<div class="row my-4 gap-3">
+							<div class="col-md-2">
+								<button type="reset" class="btn btn-danger" style="width: 100%;">Reset</button>
+							</div>
+							<div class="col-md-2">
+								<button type="submit" class="btn btn-success" style="width: 100%;">Save
+								</button>
+							</div>
+						</div>
+
+					</div>
+				</form>
+				<!-- 2nd Row 1st Column End -->
+
+				<!-- Row Start-->
+				<div class="row differ my-2">
+					<div class="col-md-12  mybg-secondary py-3">
+						<div class="head ">
+							Previously Added Haulage Services(s)
+						</div>
+					</div>
+					<div class="col-md-12 col-lg-12 px-1 py-0">
+						<table class="table table-bordered mt-2 table-hover">
+							<thead>
+								<tr>
+									<th class="table-head">Sr.No</th>
+									<th class="table-head">Service</th>
+									<th class="table-head">Additonal Charges</th>
+									<th class="table-head">Expected Delivery(Days)</th>
+									<th class="table-head">Description</th>
+									<th class="table-head">Action</th>
+								</tr>
+							</thead>
+							<tbody class="border">
+								<tr id="table-row" th:each="i ,istat:*{HSLsit}">
+									<td th:text="${istat.index}" />
+									<td th:text="*{i.Service}" />
+									<td th:text="*{i.Charges}" />
+									<td th:text="${i.Min_days} + ' - ' + ${i.Max_days}" />
+									<!--<td th:text="*{i.Min_days}" />-->
+									<td th:text="*{i.Description}" />
+									<td class="table-text ">
+										<div class="d-flex">
+											<a th:href="@{updateService(id = ${i.id})}" class="px-2"> <span><i
+														class="material-icons"
+														style="color:rgb(0, 0, 255)">Update</i></span>
+											</a>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+	<!-- Custom Js Files  -->
+	<script src="./js/custom.js"></script>
+
+	<!--cancel button js-->
+
+	<script>
+		function cancelHaulage(haulageId) {
+			if (confirm("Are you sure you want to cancel this Haulage?")) {
+				window.location.href = `@{haulagecancel(id=${haulageId})}`;
+			}
+		}
+
+	</script>
+	<!-- Go Back Button JS -->
+	<script>
+		function goBack() {
+			window.history.back();
+		}
+	</script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const switchBtns = document.querySelectorAll('.switch-btn');
+
+			switchBtns.forEach(btn => {
+				btn.addEventListener('click', function () {
+
+					// Remove switch-active class from all buttons
+					switchBtns.forEach(btn => {
+						btn.classList.remove('switch-active');
+					});
+
+					// Add switch-active class to the clicked button
+					this.classList.add('switch-active');
+
+					// Hide all search boxes
+					const searchBoxes = document.querySelectorAll('.search-box');
+					searchBoxes.forEach(box => {
+						box.style.display = 'none';
+					});
+
+					// Determine which search box to display based on the clicked button
+					const targetId = this.dataset.target;
+
+					const targetSearchBox = document.getElementById(targetId);
+
+					if (targetSearchBox) {
+						targetSearchBox.style.display = 'block';
+					}
+				});
+			});
+		});
+
+
+	</script>
+</body>
+
+</html>

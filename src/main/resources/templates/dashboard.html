@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./login.css"> -->
+    <!-- <link rel="stylesheet" href="./css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	<link th:href="@{/css/toast.css}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <!-- Remix Icon CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- <script src="./js/grapg.js"></script> -->
+</head>
+
+   <body>
+	   <div th:replace = "Sidebar :: navbar"></div>
+        <!-- Main  Section -->
+        <div class="main-content  p-0">
+            <div class="alert-box  text-center">
+                Welcome to New <span style="padding-right: 5px;padding-left: 5px;">ERP</span> Portal
+            </div>
+
+            <!-- Main Page Data  -->
+            <div class="container-fluid">
+                <div class="d-flex flex-wrap page-header justify-content-between align-items-center">
+                    <h3 class="page-heading">
+                        Dashboard
+                    </h3>
+                    <p class="header-date m-0 " id="current-date"></p>
+                </div>
+
+                <!-- 1st Row Start -->
+                <div class="row inner-mt15  justify-content-around  my-3">
+                    <!-- Div Top Left -->
+                    <div class=" col-md-6 mt-0 ">
+                        <div class="data-container">
+                            <div class="data-container-div ">
+                                <!-- <img src="./trophy.svg" class="img-fluid dc-i px-2" alt=""> -->
+                                <h3 class="data-container-h px-2">Enrolled Students</h3>
+                            </div>
+                            <div class="tm-data pb-4 px-2 d-flex flex-column">
+                                <!-- Make code Dynamic from Here -->
+
+                                <div
+                                    class="tm-details  clk-td-cont d-flex justify-content-between align-items-center px-3 my-1">
+                                    <div class="d-flex clk-td-text align-items-center">
+                                        <div class="profile-dot"></div>
+                                        <span style="font-size: 15px; color: rgb(61, 77, 105); margin-left: 20px;">Total
+                                            Students </span>
+                                    </div>
+                                    <div class="d-flex clk-td-clk align-items-center ">
+                                        <div style="width: 40px;">
+                                            <span><i class="fa-solid fa-users clock px-1" style="font-size: 20px;"></i></i>
+                                        </div>
+                                        <div class="clock-time text-left px-2" style="width: 100px;">
+                                            <div style="padding: 18px; font-size: 16px;">
+                                                363
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="tm-details  clk-td-cont d-flex justify-content-between align-items-center px-3">
+                                    <div class="d-flex clk-td-text align-items-center">
+                                        <div class="profile-dot"></div>
+                                        <span style="font-size: 15px; color: rgb(61, 77, 105); margin-left: 20px;">Total
+                                            Males </span>
+                                    </div>
+                                    <div class="d-flex clk-td-clk align-items-center ">
+                                        <div style="width: 40px;">
+                                            <span><i class="fa fa-male clock px-2"></i></span>
+                                        </div>
+                                        <div class="clock-time text-left px-2" style="width: 100px;">
+                                            <div style="padding: 18px; font-size: 16px;">
+                                                567
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="tm-details  clk-td-cont d-flex justify-content-between align-items-center px-3">
+                                    <div class="d-flex clk-td-text align-items-center">
+                                        <div class="profile-dot"></div>
+                                        <span style="font-size: 15px; color: rgb(61, 77, 105); margin-left: 20px;">Total
+                                            Females </span>
+                                    </div>
+                                    <div class="d-flex clk-td-clk align-items-center ">
+                                        <div style="width: 40px;">
+                                            <span><i class="fa fa-female clock px-2"></i></span>
+                                        </div>
+                                        <div class="clock-time text-left px-2" style="width: 100px;">
+                                            <div style="padding: 18px; font-size: 16px;">
+                                                364
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="tm-details  clk-td-cont d-flex justify-content-between align-items-center px-3">
+                                    <div class="d-flex clk-td-text align-items-center">
+                                        <div class="profile-dot"></div>
+                                        <span style="font-size: 15px; color: rgb(61, 77, 105); margin-left: 20px;">
+                                            Colleges </span>
+                                    </div>
+                                    <div class="d-flex clk-td-clk align-items-center ">
+                                        <div style="width: 40px;">
+                                            <span><i class="ri-building-line clock px-1"></i></i></span>
+                                        </div>
+                                        <div class="clock-time text-left px-2" style="width: 100px;">
+                                            <div style="padding: 18px; font-size: 16px;">
+                                                43
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="tm-details  clk-td-cont d-flex justify-content-between align-items-center px-3">
+                                    <div class="d-flex clk-td-text align-items-center">
+                                        <div class="profile-dot"></div>
+                                        <span style="font-size: 15px; color: rgb(61, 77, 105); margin-left: 20px;">Foreigner
+                                            Students </span>
+                                    </div>
+                                    <div class="d-flex clk-td-clk align-items-center ">
+                                        <div style="width: 40px;">
+                                            <span><i class="ri-earth-line clock px-1"></i></span>
+                                        </div>
+                                        <div class="clock-time text-left px-2" style="width: 100px;">
+                                            <div style="padding: 18px; font-size: 16px;">
+                                                324
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Div Top Right -->
+                    <div class=" col-md-6 mt-0 ">
+                        <div class="data-container">
+                            <div class="data-container-div ">
+                                <!-- <img src="./trophy.svg" class="img-fluid dc-i px-2" alt=""> -->
+                                <h3 class="data-container-h px-2">Student Leads</h3>
+                            </div>
+                            <div class="tm-data pb-4 px-2 d-flex flex-column">
+                                <!-- Make code Dynamic from Here -->
+                                <div
+                                    class="tm-details  clk-td-cont d-flex justify-content-between align-items-center px-3">
+                                    <div class="d-flex clk-td-text align-items-center">
+                                        <div class="profile-dot"></div>
+                                        <span style="font-size: 15px; color: rgb(61, 77, 105); margin-left: 20px;">Total
+                                            Females </span>
+                                    </div>
+                                    <div class="d-flex clk-td-clk align-items-center ">
+                                        <div class="text-left px-2" style="width: 150px;">
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 65%;"
+                                                    aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress-persnt px-2">
+                                            1873
+                                        </div>
+                                        <!-- <div class="progress-persnt px-2">
+                                            <b th:text="${studentLeadFemale}"></b>
+                                            4645556
+                                        </div> -->
+                                        <!-- <div  style="display:none;"></div> -->
+
+                                    </div>
+                                </div>
+                                <div
+                                    class="tm-details  clk-td-cont d-flex justify-content-between align-items-center px-3">
+                                    <div class="d-flex clk-td-text align-items-center">
+                                        <div class="profile-dot"></div>
+                                        <span style="font-size: 15px; color: rgb(61, 77, 105); margin-left: 20px;">Total
+                                            Males Verma</span>
+                                    </div>
+                                    <div class="d-flex clk-td-clk align-items-center ">
+                                        <div class="text-left px-2" style="width: 150px;">
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 96%;"
+                                                    aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress-persnt px-2">
+                                            1243
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="tm-details  clk-td-cont d-flex justify-content-between align-items-center px-3">
+                                    <div class="d-flex clk-td-text align-items-center">
+                                        <div class="profile-dot"></div>
+                                        <span style="font-size: 15px; color: rgb(61, 77, 105); margin-left: 20px;">Total
+                                        </span>
+                                    </div>
+                                    <div class="d-flex clk-td-clk align-items-center ">
+                                        <div class="text-left px-2" style="width: 150px;">
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 65%;"
+                                                    aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress-persnt px-2">
+                                            2864
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="tm-details  clk-td-cont d-flex justify-content-between align-items-center px-3">
+                                    <div class="d-flex clk-td-text align-items-center">
+                                        <div class="profile-dot"></div>
+                                        <span
+                                            style="font-size: 15px; color: rgb(61, 77, 105); margin-left: 20px;">Colleges
+                                        </span>
+                                    </div>
+                                    <div class="d-flex clk-td-clk align-items-center ">
+                                        <div class="text-left px-2" style="width: 150px;">
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 65%;"
+                                                    aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress-persnt px-2">
+                                            3301
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="tm-details  clk-td-cont d-flex justify-content-between align-items-center px-3">
+                                    <div class="d-flex clk-td-text align-items-center">
+                                        <div class="profile-dot"></div>
+                                        <span
+                                            style="font-size: 15px; color: rgb(61, 77, 105); margin-left: 20px;">Foreigner
+                                            Students </span>
+                                    </div>
+                                    <div class="d-flex clk-td-clk align-items-center ">
+                                        <div class="text-left px-2" style="width: 150px;">
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 65%;"
+                                                    aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress-persnt px-2">
+                                            7064
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <!-- 2nd Row Start -->
+                <div class="row justify-content-around mb-2 ">
+                    <div class="col-md-3 p-2">
+                        <div class="graph-container mybdr-secondary">
+                            <div class="graph-card">
+                                <div class="graph-upper-div">
+                                    <div class="heading">Total Enrolled Students</div>
+                                    <div class="hours-heading chart1-time"></div>
+                                </div>
+                                <div class="graph ">
+                                    <canvas id="myChart"></canvas>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 p-2">
+                        <div class="graph-container mybdr-secondary">
+                            <div class="graph-card">
+                                <div class="graph-upper-div">
+                                    <div class="heading">FalconShip</div>
+                                    <div class="hours-heading chart2-time">0h 00m</div>
+                                </div>
+                                <div class="d-flex flex-row align-items-center  justify-content-between flex-wrap  ">
+                                    <div class=" " style="width: 60%;">
+                                        <div class="last-week-hour p-3 text-center" style="width: 100%;">
+                                            <div class="c2sub-heading ">last week</div>
+                                            <div class="c2sub-time" id="mostp-activity">0h 00m</div>
+                                        </div>
+                                    </div>
+                                    <div class="graph" style="width: 40%;">
+                                        <canvas id="myChart2" class="pb-3"
+                                            style="width: 100%; max-width: 500px; max-height: 130px; height: 130px"></canvas>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 p-2">
+                        <div class="graph-container mybdr-secondary">
+                            <div class="graph-card">
+                                <div class="graph-upper-div">
+                                    <div class="heading">AllFixit</div>
+                                    <div class="hours-heading chart3-time">0h 00m</div>
+                                </div>
+                                <div class="d-flex flex-row align-items-center  justify-content-between flex-wrap  ">
+                                    <div class=" " style="width: 60%;">
+                                        <div class="last-week-hour p-3 text-center" style="width: 100%;">
+                                            <div class="c2sub-heading ">last week</div>
+                                            <div class="c2sub-time" id="last-week-time">0h 00m</div>
+                                        </div>
+                                    </div>
+                                    <div class="graph " style="width: 40%;">
+                                        <canvas id="myChart3" class="pb-3"
+                                            style="width: 100%; max-width: 500px; max-height: 150px; height: 10px"></canvas>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 p-2">
+                        <div class="graph-container mybdr-secondary">
+                            <div class="graph-card d-flex flex-column justify-content-between align-items-between"
+                                style="height: 175px;">
+                                <div class="graph-upper-div">
+                                    <div class="heading">All Projects</div>
+                                    <div class="hours-heading chart4-time">65%</div>
+                                </div>
+
+                                <div class="graph ">
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar"
+                                            style="width: 65%; background-color: rgb(183, 219, 158);" aria-valuenow="65"
+                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="progress-date">February 2, 2024</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- 2nd Row End -->
+
+                <!-- 3rd Row Start -->
+                <div class="row inner-mt15 justify-content-around mb-2 px-2 ">
+                    <div class="col-md-6  p-0">
+                        <div class="data-container bs-dc mt-0  ">
+                            <div class="d-flex flex-column flex-wrap ">
+                                <div class="d-flex justify-content-between align-items-center p-3 flex-wrap">
+                                    <div class="d-flex align-items-center">
+                                        <div class="sm-Bheading ">
+                                            Activity Reports
+                                        </div>
+                                        <div class="activityr-subh">
+                                            All Projects
+                                        </div>
+                                    </div>
+                                    <div class="f-flex links">
+                                        <a href="#">View More</a>
+                                    </div>
+                                </div>
+                                <div class="bar-container d-flex align-items-center flex-wrap  justify-content-around "
+                                    style="height:fit-content;">
+                                    <div class="d-flex flex-column flex-wrap align-items-center barstick-container">
+                                        <div class="vertical-progress w-10">
+                                            <div class="verticle-progress-bar progress-bar" role="progressbar"
+                                                style="height: 15%;" aria-valuenow="15" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="d-flex flex-column my-2 justify-content-center align-items-center">
+                                            <span class="vertical-pb-no">456</span>
+                                            <div class="vpb-text ">
+                                                Jan 27
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="d-flex flex-column flex-wrap align-items-center barstick-container">
+                                        <div class="vertical-progress w-10">
+                                            <div class="progress-bar  verticle-progress-bar" role="progressbar"
+                                                style="height: 25%;" aria-valuenow="25" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="d-flex flex-column my-2 justify-content-center align-items-center">
+                                            <span class="vertical-pb-no">56</span>
+                                            <div class="vpb-text ">
+                                                Jan 28
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column flex-wrap align-items-center barstick-container">
+                                        <div class="vertical-progress w-10">
+                                            <div class="progress-bar  verticle-progress-bar" role="progressbar"
+                                                style="height: 55%;" aria-valuenow="55" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="d-flex flex-column my-2 justify-content-center align-items-center">
+                                            <span class="vertical-pb-no">76</span>
+                                            <div class="vpb-text ">
+                                                Jan 29
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column flex-wrap align-items-center barstick-container">
+                                        <div class="vertical-progress w-10">
+                                            <div class="progress-bar  verticle-progress-bar" role="progressbar"
+                                                style="height: 95%;" aria-valuenow="95" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="d-flex flex-column my-2 justify-content-center align-items-center">
+                                            <span class="vertical-pb-no">6</span>
+                                            <div class="vpb-text ">
+                                                Jan 30
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column flex-wrap align-items-center barstick-container">
+                                        <div class="vertical-progress w-10">
+                                            <div class="progress-bar  verticle-progress-bar" role="progressbar"
+                                                style="height: 35%;" aria-valuenow="35" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="d-flex flex-column my-2 justify-content-center align-items-center">
+                                            <span class="vertical-pb-no">98</span>
+                                            <div class="vpb-text ">
+                                                Jan 31
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column flex-wrap align-items-center barstick-container">
+                                        <div class="vertical-progress w-10">
+                                            <div class="progress-bar  verticle-progress-bar" role="progressbar"
+                                                style="height: 65%;" aria-valuenow="65" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="d-flex flex-column my-2 justify-content-center align-items-center">
+                                            <span class="vertical-pb-no">216</span>
+                                            <div class="vpb-text ">
+                                                Feb 1
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column flex-wrap align-items-center barstick-container">
+                                        <div class="vertical-progress w-10">
+                                            <div class=" verticle-progress-bar progress-bar" role="progressbar"
+                                                style="height: 75%;" aria-valuenow="75" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="d-flex flex-column my-2 justify-content-center align-items-center">
+                                            <span class="vertical-pb-no">235</span>
+                                            <div class="vpb-text ">
+                                                Jan 2
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 p-0 px-2 ">
+                        <div class="data-container d-flex flex-column m-0 h-100">
+                            <div class="sm-Bheading  p-3">
+                                Top Assigned Projects
+                            </div>
+                            <div
+                                class="bar-sub-container data-container mybg-secondary d-flex flex-wrap m-4 mt-2 py-4  justify-content-between ">
+                                <div class="pie-chart-container d-flex">
+                                    <canvas id="myChart5" class=""
+                                        style="width:100%;max-width:500px; max-height: 130px ;height:130px">
+                                    </canvas>
+                                </div>
+                                <div class="bar-data-box px-3 d-flex flex-column  align-items-left justify-content-center"
+                                    style="width: 200px;">
+                                    <div class="d-flex profile-data  align-items-center my-2 ">
+                                        <div class="profile-dot ar-userdot" id="ard1"></div>
+                                        <span class="ar-username"
+                                            style="font-size: 15px; color: rgb(61, 77, 105); margin-left: 20px;">FalconShip</span>
+                                    </div>
+
+                                    <div class="d-flex profile-data align-items-center my-2">
+                                        <div class="profile-dot ar-userdot" id="ard2"></div>
+                                        <span class="ar-username"
+                                            style="font-size: 15px; color: rgb(61, 77, 105); margin-left: 20px;">
+                                            robert</span>
+                                    </div>
+                                    <div class="d-flex profile-data align-items-center my-2">
+                                        <div class="profile-dot ar-userdot" id="ard3"></div>
+                                        <span class="ar-username"
+                                            style="font-size: 15px; color: rgb(61, 77, 105); margin-left: 20px;">Sidhu
+                                            disuja</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- 3rd Row End -->
+
+
+                <!-- 4th Row Start -->
+                <div class="row inner-mt15   mb-2 pb-3 ">
+                    <!-- Bottom Left -->
+                    <div class="col-md-5 ">
+                        <div class="data-container mt-0  p-3">
+                            <div class="sm-Bheading ">
+                                Ongoing Tasks
+                            </div>
+                            <div class="box-container ">
+                                <div class="sub-box">
+                                    <div class="fs-14">
+                                        Auditing Information Architecture
+                                    </div>
+                                    <div class="subsubbox">
+                                        <div class="">
+                                            Falcom Heavy
+                                        </div>
+                                        <div class="">
+                                            34:03:00
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sub-box" style="background-color: rgb(234, 249, 247);">
+                                    <div class="fs-14">
+                                        Launch Marketing Campaign
+                                    </div>
+                                    <div class="subsubbox">
+                                        <div class="">
+                                            Falcom Heavy
+                                        </div>
+                                        <div class="">
+                                            34:03:00
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sub-box" style="background-color: #FBF3DA;">
+                                    <div class="fs-14">
+                                        Low-Fidelity Design - Mobile
+                                    </div>
+                                    <div class="subsubbox">
+                                        <div class="">
+                                            Starship
+                                        </div>
+                                        <div class="">
+                                            25:05:58
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sub-box" style="background-color: #ECECFC;">
+                                    <div class="fs-14">
+                                        Brainstorming on New Branding
+                                    </div>
+                                    <div class="subsubbox">
+                                        <div class="">
+                                            Grasshopper
+                                        </div>
+                                        <div class="">
+                                            34:03:00
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Right  -->
+                    <div class="col-md-7 px-2" style="">
+                        <div class=" data-container  timesheet-col">
+                            <div class="mt-0 p-3">
+                                <div class="d-flex justify-content-between align-items-center  flex-wrap">
+                                    <div class="d-flex align-items-center">
+                                        <div class="sm-Bheading ">
+                                            Timesheet
+                                        </div>
+                                        <div class="activityr-subh">
+                                            All Projects
+                                        </div>
+                                    </div>
+                                    <div class="f-flex links">
+                                        <a href="#">View More</a>
+                                    </div>
+                                </div>
+                                <div class="timesheet-container ">
+                                    <div class="timecol mt-2">
+                                        <div class="timecol-date">
+                                            27 Jan
+                                        </div>
+                                        <div class="timecol-time">
+                                            <span><i class="ri-time-line clock px-2"></i></span> 56h 23m
+                                        </div>
+                                    </div>
+                                    <div class="timecol mt-2">
+                                        <div class="timecol-date">
+                                            27 Jan
+                                        </div>
+                                        <div class="timecol-time">
+                                            <span><i class="ri-time-line clock px-2"></i></span> 56h 23m
+                                        </div>
+                                    </div>
+                                    <div class="timecol mt-2">
+                                        <div class="timecol-date">
+                                            27 Jan
+                                        </div>
+                                        <div class="timecol-time">
+                                            <span><i class="ri-time-line clock px-2"></i></span> 56h 23m
+                                        </div>
+                                    </div>
+                                    <div class="timecol mt-2">
+                                        <div class="timecol-date">
+                                            27 Jan
+                                        </div>
+                                        <div class="timecol-time">
+                                            <span><i class="ri-time-line clock px-2"></i></span> 56h 23m
+                                        </div>
+                                    </div>
+                                    <div class="timecol mt-2">
+                                        <div class="timecol-date">
+                                            27 Jan
+                                        </div>
+                                        <div class="timecol-time">
+                                            <span><i class="ri-time-line clock px-2"></i></span> 56h 23m
+                                        </div>
+                                    </div>
+                                    <div class="timecol mt-2">
+                                        <div class="timecol-date">
+                                            27 Jan
+                                        </div>
+                                        <div class="timecol-time">
+                                            <span><i class="ri-time-line clock px-2"></i></span> 56h 23m
+                                        </div>
+                                    </div>
+                                    <div class="timecol mt-2">
+                                        <div class="timecol-date">
+                                            27 Jan
+                                        </div>
+                                        <div class="timecol-time">
+                                            <span><i class="ri-time-line clock px-2"></i></span> 56h 23m
+                                        </div>
+                                    </div>
+                                    <div class="timecol mt-2">
+                                        <div class="timecol-date " style="font-weight: 700; text-wrap: nowrap;">
+                                            Weekly Total
+                                        </div>
+                                        <div class="timecol-time text-white" style="background-color: #20BEAD;">
+                                            <span><i class="ri-time-line clock px-2 text-white"></i></span> 756h 23m
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  
+                   </div>
+                </div>
+                <!-- 4th Row End -->
+            </div>
+
+        </div>
+
+   
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+    <!-- Graph Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <!-- Custom Js Files  -->
+    <script src="./js/custom_js.js"></script>
+    <script src="./js/grapg.js"></script>
+
+    <!-- update Horizontal progress bars and color of all progress-bar  -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            updateProgressBarColors();
+
+            // You can simulate changes in the progress values over time
+            setInterval(function () {
+                const progressValues = [Math.floor(Math.random() * 101), Math.floor(Math.random() * 101), Math.floor(Math.random() * 101), Math.floor(Math.random() * 101), Math.floor(Math.random() * 101)];
+
+                for (let i = 0; i < progressValues.length; i++) {
+                    const progressBar = document.querySelectorAll('.progress-bar')[i];
+                    progressBar.style.width = progressValues[i] + "%";
+                    progressBar.setAttribute('aria-valuenow', progressValues[i]);
+                }
+
+                updateProgressBarColors();
+            }, 5000); // Change the progress values every 5 seconds (5000 milliseconds)
+
+            function updateProgressBarColors() {
+                const progressBars = document.querySelectorAll('.progress-bar');
+
+                progressBars.forEach(progressBar => {
+                    const progressValue = parseInt(progressBar.getAttribute('aria-valuenow'));
+
+                    if (progressValue < 20) {
+                        progressBar.style.backgroundColor = '#FB4B4B';
+                    } else if (progressValue < 50) {
+                        progressBar.style.backgroundColor = '#FFC163';
+                    } else if (progressValue < 70) {
+                        progressBar.style.backgroundColor = 'rgb(183, 219, 158)';
+                    } else {
+                        progressBar.style.backgroundColor = '#20BEAD';
+                    }
+                });
+            }
+        });
+    </script>
+
+
+    <!-- update Vertical progress bars -->
+    <script>
+        // Function to update Vertical progress bars
+        function updateProgressBars() {
+            // Select all progress bars
+            var progressBars = document.querySelectorAll('.verticle-progress-bar');
+
+            // Loop through each progress bar and update its height randomly
+            progressBars.forEach(function (progressBar) {
+                var newHeight = Math.floor(Math.random() * 100) + 1; // Random height between 1 and 100
+                progressBar.style.height = newHeight + '%';
+                progressBar.setAttribute('aria-valuenow', newHeight);
+            });
+        }
+
+        // Initial call to update progress bars
+        updateProgressBars();
+
+        // Update progress bars every 5 seconds
+        setInterval(updateProgressBars, 5000);
+    </script>
+
+</body>
+
+</html>

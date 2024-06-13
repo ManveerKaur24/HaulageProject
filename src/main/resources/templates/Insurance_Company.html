@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insurance Company</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+		integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- Remix Icon CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+	<link th:href="@{/css/toast.css}" rel="stylesheet">
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/custom_table.css}">
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+</head>
+
+<body>
+	<div th:replace="Sidebar :: navbar"></div>
+	<!-- Body  -->
+	<div class="main-content  p-0 ">
+		<div class="alert-box  text-center">
+			Welcome to ERP Portal <span style="padding-right: 5px;padding-left: 5px;">ERP</span> Portal
+		</div>
+
+		<!-- Main Page Data  -->
+		<div class="container-fluid px-3 p-0 pb-5">
+			<div class="d-flex flex-wrap gap-2 page-header justify-content-between align-items-center">
+				<h3 class="page-heading">
+					Insurance Company
+				</h3>
+				<p class="header-date m-0 " id="current-date"></p>
+			</div>
+
+			<div class="d-flex mb-3">
+				<a href="#" class="back-arrow pback" onclick="goBack()">
+					<i class="ri-arrow-left-line"></i> <span class=" px-3">Back to Previous Page</span>
+				</a>
+			</div>
+			<form th:action="@{saveInsurance}" th:object="${Insurance}" method="post" id="myForm">
+				<input type="hidden" th:field="*{id}">
+				<!-- Main Data Container -->
+
+				<div class="data-container p-4 ">
+					<div class="row justify-content-center">
+						<div class="col-md-11 ">
+
+
+							<!-- Employee Row 1 -->
+							<div class="row differ my-2 justify-content-between " style="border: none; ">
+
+								<!-- 2nd Row 1st Column Start -->
+								<div class="col-md-12 differ  pb-3">
+									<div class="row">
+										<div class="col-md-24  mybg-secondary py-2 mb-3">
+											<div class="head ">
+												Insurance Detail(s)
+											</div>
+										</div>
+									</div>
+
+									<div class="row justify-content-between gap-1">
+										<div class="col-md-12 col-sm-4">
+											<!-- for lable and input -->
+											<div class="row">
+												<div class="col-md-4">
+													<label for="Name" class="org-form-label my-2 ">Insurance Company
+														Name</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="addmission-date"
+														th:field="*{insuranceCompanyName}" id="addmission-date"
+														class="form-control org-form-input add-org-form-input">
+													<span id="Sender_Name" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+
+										<!-- Phone Column Start  -->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="Contact Person" class="org-form-label my-2 ">Contact
+														Person</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="Contact Person" id="phone"
+														th:field="*{contactPerson}"
+														class="form-control org-form-input add-org-form-input">
+													<span id="MobileNo-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+										<!--Phone Column End -->
+
+										<!--
+										 Email Column Start -->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="Contact Number" class="org-form-label my-2 ">Contact
+														Number</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="Contact Number" id="Contact Number"
+														th:field="*{contactNumber}"
+														class="form-control org-form-input add-org-form-input">
+													<span id="Email-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+										<!-- Email Column End-->
+
+										<!--Date of Birth-->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="address1" class="org-form-label my-2 ">Address Line 1
+													</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="address1" id="address1"
+														th:field="*{addressLine1}"
+														class="form-control org-form-input add-org-form-input">
+													<span id="address1-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+										<!-- Address Line 1 Column Start-->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="address2" class="org-form-label my-2 ">Address Line
+														2
+													</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="address2" id="address2"
+														th:field="*{addressLine2}"
+														class="form-control org-form-input add-org-form-input">
+													<span id="address2-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+										<!-- Address Line 1 Column End  -->
+
+
+										<!-- Country Column Start -->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="country" class="org-form-label my-2 ">Country</label>
+												</div>
+												<div class="col-md-7">
+													<select name="country" id="country"
+														th:field="*{InsuranceDistrict.state.country.id}"
+														class="form-select org-form-input add-org-form-input"
+														onchange="getState(this.value,'state.id');">
+														<option value="">select country</option>
+														<option th:each="i:${countrylist}" th:value="${i.id}"
+															th:text="${i.countryName }"></option>
+													</select>
+													<span id="country-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+										<!--Country Column End 
+
+
+
+										<!-- State Column Start -->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="State" class="org-form-label my-2 ">State</label>
+												</div>
+												<div class="col-md-7">
+													<select name="State" id="state"
+														class="form-select org-form-input add-org-form-input"
+														th:field="*{InsuranceDistrict.state.id}"
+														th:onchange="getdistrict(this.value,'state.district.id')">
+														<option value="">select state</option>
+														<option th:each="i:${statelist}" th:value="${i.id}"
+															th:text="${i.stateName }"></option>
+
+													</select>
+													<span id="State-error" class="State-message"></span>
+												</div>
+											</div>
+										</div>
+										<!-- State Column End -->
+
+										<!-- District Column Start -->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="State" class="org-form-label my-2 ">District</label>
+												</div>
+												<div class="col-md-7">
+													<select name="District" id="district"
+														class="form-select org-form-input add-org-form-input"
+														th:field="*{InsuranceDistrict.id}"
+														th:onchange="getdistrict(this.value,'state.district.id')">
+														<option value="">select District</option>
+														<option th:each="i:${districtlist}" th:value="${i.id}"
+															th:text="${i.districtName }"></option>
+
+													</select>
+													<span id="District-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+
+										<!-- City Column Start-->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="city" class="org-form-label my-2 ">City
+													</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="pincode" id="pincode" th:field="*{city}"
+														class="form-control org-form-input add-org-form-input">
+													<span id="pincode-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+
+										<!--Pin code Column Start -->
+										<div class="col-md-12 col-sm-4">
+											<div class="row">
+												<div class="col-md-4">
+													<label for="pincode" class="org-form-label my-2 ">Pin
+														Code</label>
+												</div>
+												<div class="col-md-7">
+													<input type="text" name="pincode" id="pincode" th:field="*{pincode}"
+														class="form-control org-form-input add-org-form-input">
+													<span id="pincode-error" class="error-message"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- Form Button Controls  -->
+
+								<div class="col-md-2">
+									<button type="submit" class="btn btn-success"
+										style="font-size: 15px;">Submit</button>
+								</div>
+							</div>
+						</div>
+			</form>
+
+			<!-- -table - -->
+			<div class="col-md-12 col-lg-12 px-1 py-0">
+				<table class="table table-bordered mt-2 table-hover">
+					<thead>
+						<tr>
+							<th class="table-head">S.No</th>
+							<th class="table-head">Code</th>
+							<th class="table-head">Company Name</th>
+							<th class="table-head">Contact Person</th>
+							<th class="table-head">Add.1</th>
+							<th class="table-head">Add.2</th>
+							<th class="table-head">State</th>
+							<th class="table-head">District</th>
+							<th class="table-head">Manage</th>
+						</tr>
+					</thead>
+
+					<tbody class="border">
+						<tr id="table-row" th:each="i ,istat:*{insuranceComList}">
+							<td th:text="${istat.index}" />
+							<td th:text="*{i.id}" />
+							<td th:text="*{i.insuranceCompanyName}" />
+							<td th:text="*{i.contactPerson}" />
+							<td th:text="*{i.addressLine1}" />
+							<td th:text="*{i.addressLine2}" />
+							<td th:if="${i.InsuranceDistrict==null}" />
+
+							<td th:if="${i.InsuranceDistrict!=null}" th:text="*{i.InsuranceDistrict.state.stateName}" />
+
+							<td th:if="${i.InsuranceDistrict==null}" />
+
+							<td th:if="${i.InsuranceDistrict!=null}" th:text="*{i.InsuranceDistrict.districtName}" />
+							<td text="*{i.Manage}" />
+
+							<div class="d-flex">
+								<a th:href="@{(id = updateInsurance${i.id})}" class="px-2"> <span><i
+											class="material-icons" style="color:springgreen">manage</i></span> </a>
+								<a th:href="@{deleteInsurance(id = ${i.id})}" class="px-2"> <span><i
+											class="material-icons" style="color:red">delete</i></span> </a>
+
+								</td>
+						</tr>
+					</tbody>
+
+				</table>
+
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	</div>
+
+	</main>
+
+	<!--Script  -->
+	<script th:src="@{/js/custom.js}"></script>
+</body>

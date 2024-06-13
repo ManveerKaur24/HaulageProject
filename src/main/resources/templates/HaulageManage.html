@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Manage_Haulage</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	<link th:href="@{/css/toast.css}" rel="stylesheet">
+
+	<!-- Remix Icon CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<link rel="stylesheet" href="./custom_table.css">
+
+</head>
+
+<body>
+	<div th:replace="Sidebar :: navbar"></div>
+
+	<main class="d-flex">
+		<!-- Body  -->
+		<div class="main-content  p-0 ">
+			<div class="alert-box  text-center">
+				Welcome to New <span style="padding-right: 5px;padding-left: 5px;">ERP</span> Portal
+			</div>
+
+			<!-- Main Page Data  -->
+			<div class="container-fluid px-3 p-0 pb-5">
+				<div class="d-flex flex-wrap gap-2 page-header justify-content-between align-items-center">
+					<h3 class="page-heading">
+						Booking &#x276F; View Haulage(s)
+					</h3>
+					<p class="header-date m-0 " id="current-date"></p>
+				</div>
+
+				<div class="d-flex mb-3">
+					<a href="#" class="back-arrow pback" onclick="goBack()">
+						<i class="ri-arrow-left-line"></i> <span class=" px-3">Back to Previous Page</span>
+					</a>
+				</div>
+
+				<!-- Main Data Container -->
+				<div class="data-container p-4 ">
+					<div class="row justify-content-center">
+						<div class="col-md-11 ">
+
+							<div class="row differ my-3">
+								<div class="row gap-2 align-items-end my-3">
+									<div class="col-md-12 col-lg-12">
+										<div class="mini-head mb-1">
+											Search By
+										</div>
+										<div class="d-flex gap-2 flex-wrap justify-content-center mybdr-secondary bg-white "
+											style="border-radius: 7px; padding: 5px 10px;">
+											<div class="switch-btn switch-active" data-target="client-name">
+												<span class="switch-span"><i class="ri-book-line"></i></span> Client
+												Name
+											</div>
+
+											<div class="switch-btn" data-target="Client_mobile">
+												<span class="switch-span"><i class="ri-archive-line"></i></span>
+												Client_mobile
+											</div>
+
+
+											<div class="switch-btn" data-target="tracking_code">
+												<span class="switch-span"><i class="ri-archive-line"></i></span>
+												Tracking Code
+											</div>
+
+											<div class="switch-btn" data-target="Booking_date">
+												<span class="switch-span"><i class="ri-archive-line"></i></span> Booking
+												Date
+											</div>
+
+
+											<div class="switch-btn" data-target="status">
+												<span class="switch-span"><i class="ri-archive-line"></i></span> Haulage
+												Status
+											</div>
+
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-5 col-sm-5">
+											<form class="d-flex flex-column">
+												<div class="mini-head mb-1">
+													Search Client
+												</div>
+
+												<!--1st form-->
+
+												<form th:action="@{haulagemanage}" method="get">
+													<div id="client-name" class="search-box" style="display: block;">
+														<div class="d-flex gap-2">
+															<input type="text" name="client-name" id="addmission-date"
+																class="form-control org-form-input add-org-form-input"
+																placeholder="Search By client Name">
+															<button type="submit" class="btn btn-success p-1 "
+																style="font-size: 14px;">Search</button>
+														</div>
+													</div>
+												</form>
+
+												<!--2nd form-->
+
+												<form th:action="@{haulagemanage}" method="get">
+													<div id="Client_mobile" class="search-box" style="display: none;">
+														<div class="d-flex gap-2">
+															<input type="text" name="Client_mobile" id="addmission-date"
+																class="form-control org-form-input add-org-form-input"
+																placeholder="Search By Client Mobile">
+															<button type="submit" class="btn btn-success p-1 "
+																style="font-size: 14px;">Search</button>
+														</div>
+													</div>
+												</form>
+
+												<!--3rd form-->
+
+												<form th:action="@{haulagemanage}" method="get">
+													<div id="tracking_code" class="search-box" style="display: none;">
+														<div class="d-flex gap-2">
+															<input type="text" name="tracking_code" id="addmission-date"
+																class="form-control org-form-input add-org-form-input"
+																placeholder="Search By Tracking Code">
+															<button type="submit" class="btn btn-success p-1 "
+																style="font-size: 14px;">Search</button>
+														</div>
+													</div>
+												</form>
+
+												<!--4th form-->
+
+												<form th:action="@{haulagemanage}" method="get">
+
+													<div id="Booking_date" class="search-box" style="display: none;">
+														<div class="d-flex gap-2">
+															<input type="text" name="Booking_date" id="booking-date"
+																class="form-control org-form-input add-org-form-input"
+																placeholder="Search By Booking Date">
+															<button type="submit" class="btn btn-success p-1 "
+																style="font-size: 14px;">Search</button>
+														</div>
+													</div>
+												</form>
+
+												<!--5th form-->
+
+												<form th:action="@{haulagemanage}" method="get">
+													<div id="status" class="search-box" style="display: none;">
+														<div class="d-flex gap-2">
+															<input type="text" name="status" id="status"
+																class="form-control org-form-input add-org-form-input"
+																placeholder="Search By Haulage Status">
+
+															<button type="submit" class="btn btn-success p-1 "
+																style="font-size: 14px;">Search</button>
+														</div>
+													</div>
+												</form>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<!-- Row Start-->
+						<div class="row differ my-2">
+							<div class="col-md-12  mybg-secondary py-3">
+								<div class="head ">
+									Courier(s) - Search List
+								</div>
+							</div>
+							<div class="col-md-12 col-lg-12 px-1 py-0">
+								<table class="table table-bordered mt-2 table-hover">
+									<thead>
+										<tr>
+											<th class="table-head">S.No.</th>
+											<th class="table-head">Booking Date</th>
+											<th class="table-head">Expected Date</th>
+											<th class="table-head">Client's Name</th>
+											<th class="table-head">Client's Mob</th>
+											<th class="table-head">Tracking Code</th>
+											<th class="table-head">Current Status</th>
+											<th class="table-head">Action</th>
+										</tr>
+									</thead>
+									<tbody class="border">
+										<tr id="table-row" th:each="i ,istat:*{haulagelist}">
+											<td th:text="${istat.index}" />
+											<td th:text="*{i.booking_date}" />
+											<td th:text="*{i.expected_DeliveryDate}" />
+											<td th:text="*{i.Sender_Name}" />
+											<td th:text="*{i.Sender_MobileNo}" />
+											<td th:text="*{i.trackingCode}" />
+											<td th:text="*{i.CourierStatus}" />
+											<td class="table-text ">
+												<div class="d-flex">
+													<a th:href="@{view(id = ${i.id})}" class="px-2"> <span><i
+																class="ri-eye-line Orange"></i></span> </a>
+
+													<a th:href="@{/haulagecancel(id = ${i.id})}"> cancel</a>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+	<!-- Custom Js Files  -->
+	<script src="./js/custom.js"></script>
+
+	<!--cancel button js-->
+
+	<script>
+		function cancelHaulage(haulageId) {
+			if (confirm("Are you sure you want to cancel this Haulage?")) {
+				window.location.href = `@{haulagecancel(id=${haulageId})}`;
+			}
+		}
+
+	</script>
+	<!-- Go Back Button JS -->
+	<script>
+		function goBack() {
+			window.history.back();
+		}
+	</script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const switchBtns = document.querySelectorAll('.switch-btn');
+
+			switchBtns.forEach(btn => {
+				btn.addEventListener('click', function () {
+
+					// Remove switch-active class from all buttons
+					switchBtns.forEach(btn => {
+						btn.classList.remove('switch-active');
+					});
+
+					// Add switch-active class to the clicked button
+					this.classList.add('switch-active');
+
+					// Hide all search boxes
+					const searchBoxes = document.querySelectorAll('.search-box');
+					searchBoxes.forEach(box => {
+						box.style.display = 'none';
+					});
+
+					// Determine which search box to display based on the clicked button
+					const targetId = this.dataset.target;
+
+					const targetSearchBox = document.getElementById(targetId);
+
+					if (targetSearchBox) {
+						targetSearchBox.style.display = 'block';
+					}
+				});
+			});
+		});
+
+
+	</script>
+</body>
+
+</html>

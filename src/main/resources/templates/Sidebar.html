@@ -1,0 +1,183 @@
+<div th:fragment="navbar">
+	<nav>
+		<main class="d-flex">
+			<!-- Sidebar -->
+			<div class="sidebar px-3 py-0">
+				<!-- Arrow -->
+				<div class="sidebar-arrow">
+					<i class="ri-menu-line"></i>
+				</div>
+				<div class="navnav">
+					<!-- logo of the Sidebar -->
+					<a href="dashv2.html"
+						class=" logo-div d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+						<span class="fs-4 heading px-3">
+							<img src="./img/MyLogo.jpg" alt="" width="170">
+						</span>
+					</a>
+					<div class="nav-content">
+						<!-- Categories -->
+						<div class="category">
+
+							<ul class=" mt-0 nav nav-pills flex-column mb-auto">
+								<li>
+									<a href="./dashboard" class="nav-link link-dark sidebar-li">
+										<i class="ri-dashboard-line px-0" style="font-size: 20px;"></i>
+										<span>Dashboard</span>
+									</a>
+								</li>
+								<div class="sub-heading">
+									<h6 class="mb-2">Manage</h6>
+								</div>
+
+								<li >
+									<a href="./organizationForm" class="nav-link link-dark sidebar-li">
+										<i class="ri-organization-chart " style="font-size: 20px;"></i>
+										<span>Add Haulage</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="./haulagemanage" class="nav-link link-dark">
+										<i class="ri-admin-line " style="font-size: 20px;"></i>
+										<span>Haulage Manage</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="./haulageService" class="nav-link link-dark">
+										<i class="ri-admin-line " style="font-size: 20px;"></i>
+										<span>Haulage Service</span>
+									</a>
+								</li>
+
+
+								<li>
+									<a href="./Centre" class="nav-link link-dark">
+										<i class="ri-admin-line " style="font-size: 20px;"></i>
+										<span>Haulage Centre</span>
+									</a>
+								</li>
+								
+								<li>
+									<a href="./showConsignment" class="nav-link link-dark">
+										<i class="ri-admin-line " style="font-size: 20px;"></i>
+										<span>Consignment</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="./employee" class="nav-link link-dark">
+										<i class="ri-admin-line " style="font-size: 20px;"></i>
+										<span>Manage Employee</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="./insurance" class="nav-link link-dark">
+										<i class="ri-admin-line " style="font-size: 20px;"></i>
+										<span>Insurance Company</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="./Drivers" class="nav-link link-dark">
+										<i class="ri-team-line"></i>
+										<span>Drivers</span>
+									</a>
+								</li>
+
+							</ul>
+						</div>
+						<!-- Categories -->
+						<div class="category">
+							<div class="sub-heading">
+								<h6 class="mb-2">Location</h6>
+							</div>
+							<ul class=" mt-0 nav nav-pills flex-column mb-auto">
+
+								<li class="collapsible d-flex flex-column  align-items-start">
+									<a href="#" class="nav-link link-dark sidebar-li ">
+										<i class="ri-organization-chart " style="font-size: 20px;"></i>
+										<span>Add Locations <span class="sidebar-coll-arrow"><i
+													class="ri-arrow-right-s-line"></i></span></span>
+									</a>
+									<ul class="sub-menu  px-0 m-0 nav-pills" style="list-style: none;">
+
+										<li>
+											<a href="./country/country" class="nav-link link-dark">
+												<i class="ri-folders-line"></i>
+												<span>Country</span>
+											</a>
+										</li>
+										<li>
+											<a href="./state/state" class="nav-link link-dark">
+												<i class="ri-folders-line"></i>
+												<span>State</span>
+											</a>
+										</li>
+										<li>
+											<a href="./district/district" class="nav-link link-dark">
+												<i class="ri-folders-line"></i>
+												<span>District</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+
+
+								<!-- Add more list items here -->
+							</ul>
+						</div>
+						<div class="category">
+
+							<ul class=" mt-0 nav nav-pills flex-column mb-auto">
+
+								<li>
+									<a href="#" class="nav-link link-dark">
+										<i class="ri-folders-line"></i>
+										<span>Projects</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#" class="nav-link link-dark">
+										<i class="ri-file-chart-line"></i>
+										<span>Reports</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="nav-link link-dark">
+										<i class="ri-settings-2-line"></i>
+										<span>Settings</span>
+									</a>
+								</li>
+
+							</ul>
+						</div>
+						<!-- Categories End -->
+					</div>
+
+
+					<div class="dropdown position-fixed profile-container  bg-white">
+						<a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+							id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+							<img src="https://avatars.githubusercontent.com/u/67789838?v=4" alt="" width="32"
+								height="32" class="rounded-circle me-2">
+							<span>Profile</span>
+						</a>
+						<ul class="dropdown-menu profile-menu text-small shadow fade" aria-labelledby="dropdownUser2">
+							<li><a class="dropdown-item" href="#">New project...</a></li>
+							<li><a class="dropdown-item" href="#">Settings</a></li>
+							<li><a class="dropdown-item" href="#">Profile</a></li>
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							<li><a class="dropdown-item" href="./login.html">Sign out</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</main>
+	</nav>
+</div>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>View Haulage Details</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<!-- Remix Icon CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<link rel="stylesheet" href="./custom_table.css">
+
+</head>
+
+
+
+<body>
+	<div th:replace="Sidebar :: navbar"></div>
+
+	<!-- Body  -->
+	<div class="main-content  p-0 ">
+		<div class="alert-box  text-center">
+			Welcome to New <span style="padding-right: 5px;padding-left: 5px;">ERP</span> Portal
+		</div>
+
+		<!-- Main Page Data  -->
+		<div class="container-fluid px-3 p-0 pb-5">
+			<div class="d-flex flex-wrap gap-2 page-header justify-content-between align-items-center">
+				<h3 class="page-heading">
+					View Courier Detail(s)
+				</h3>
+				<p class="header-date m-0 " id="current-date"></p>
+			</div>
+
+			<div class="d-flex mb-3">
+				<a href="#" class="back-arrow pback" onclick="goBack()">
+					<i class="ri-arrow-left-line"></i> <span class=" px-3">Back to Previous Page</span>
+				</a>
+			</div>
+
+			<!-- Main Data Container -->
+			<div class="data-container p-4 ">
+				<div class="row justify-content-center">
+					<div class="col-md-11 ">
+
+						<!-- Print PDFs Row  -->
+						<div class="row differ my-3 ">
+							<div class="col-md-12  mybg-secondary py-3">
+								<div class="head ">
+									Shipment Detail(s)
+								</div>
+							</div>
+							<div class="col-md-12 mt-3">
+								<table class="table table-bordered">
+									<tbody>
+										<tr>
+											<td class="table-head">Full Detail(s)</td>
+											<td class="table-text">
+												<a th:href="@{/courier/courierPdf(id=${haulage.id})}"
+													class="small-btn">PDF <span><i class="ri-printer-line px-2"
+															style="font-size: 16px;"></i></span></a>
+											</td>
+											<td class="table-head">Packing Sticker(s)</td>
+											<td class="table-text"> <a href="#" class="small-btn">PDF <span><i
+															class="ri-printer-line px-2"
+															style="font-size: 16px;"></i></span></a></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+
+						<!-- 2nd Row Sender and Reciver Details (Sender/Consignor Detail) -->
+						<div class="row justify-content-between ">
+							<!-- Sender Detail Table -->
+							<div class="col-md-6  my-2  ">
+								<div class="row differ">
+									<div class="col-md-12  mybg-secondary py-3">
+										<div class="head ">
+											Sender/Consignor Detail(s)
+										</div>
+									</div>
+									<div class="col-md-12 mt-2">
+										<table class="table table-bordered">
+											<tbody>
+
+												<tr>
+													<td class="table-head">Name</td>
+													<td class="table-text" th:text="${haulage.Sender_Name}"></td>
+												</tr>
+												<tr>
+													<td class="table-head">Phone</td>
+													<td class="table-text" th:text="${haulage.Sender_MobileNo}">
+													</td>
+												</tr>
+												<tr>
+													<td class="table-head">Email Id</td>
+													<td class="table-text" th:text="${haulage.Sender_EmailId}"></td>
+												</tr>
+												<tr>
+													<td class="table-head">AddressLine 1</td>
+													<td class="table-text" th:text="${haulage.Sender_AddressLne1}">
+													</td>
+												</tr>
+												<tr>
+													<td class="table-head">AddressLine 2</td>
+													<td class="table-text" th:text="${haulage.Sender_AddressLine2}">
+													</td>
+												</tr>
+												<tr>
+													<td class="table-head">Country</td>
+													<td class="table-text"
+														th:text="${haulage.sender_District.state.Country.countryName}">
+													</td>
+												</tr>
+												<tr>
+													<td class="table-head">State</td>
+													<td class="table-text"
+														th:text="${haulage.sender_District.state.stateName}"></td>
+												</tr>
+												<tr>
+													<td class="table-head">District</td>
+													<td class="table-text"
+														th:text="${haulage.sender_District.districtName}"></td>
+												</tr>
+												<tr>
+													<td class="table-head">City/Town</td>
+													<td class="table-text" th:text="${haulage.Sender_City}"></td>
+												</tr>
+												<tr>
+													<td class="table-head">Pincode/Zipcode</td>
+													<td class="table-text" th:text="${haulage.Sender_Pincode}"></td>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+
+							<!-- Receiver Detail Table -->
+							<div class="col-md-6  my-2">
+								<div class="row differ">
+									<div class="col-md-12  mybg-secondary py-3">
+										<div class="head ">
+											Receiver/Consignee Detail(s)
+										</div>
+									</div>
+									<div class="col-md-12 mt-2">
+										<table class="table table-bordered">
+											<tbody>
+
+												<tr>
+													<td class="table-head">Name</td>
+													<td class="table-text" th:text="${haulage.reciever_Name}"></td>
+												</tr>
+												<tr>
+													<td class="table-head">Phone</td>
+													<td class="table-text" th:text="${haulage.reciever_MobileNo}">
+													</td>
+												</tr>
+												<tr>
+													<td class="table-head">Email Id</td>
+													<td class="table-text" th:text="${haulage.reciever_EmailId}">
+													</td>
+												</tr>
+												<tr>
+													<td class="table-head">AddressLine 1</td>
+													<td class="table-text" th:text="${haulage.reciever_AddressLne1}">
+													</td>
+												</tr>
+												<tr>
+													<td class="table-head">AddressLine 2</td>
+													<td class="table-text" th:text="${haulage.reciever_AddressLine2}">
+													</td>
+												</tr>
+												<tr>
+													<td class="table-head">Country</td>
+													<td class="table-text"
+														th:text="${haulage.reciever_District.state.Country.countryName}">
+													</td>
+												</tr>
+												<tr>
+													<td class="table-head">State</td>
+													<td class="table-text"
+														th:text="${haulage.reciever_District.state.stateName}"></td>
+												</tr>
+												<tr>
+													<td class="table-head">District</td>
+													<td class="table-text"
+														th:text="${haulage.reciever_District.districtName}"></td>
+												</tr>
+												<tr>
+													<td class="table-head">City/Town</td>
+													<td class="table-text" th:text="${haulage.reciever_City}"></td>
+												</tr>
+												<tr>
+													<td class="table-head">Pincode/Zipcode</td>
+													<td class="table-text" th:text="${haulage.reciever_Pincode}">
+													</td>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- 2nd Row End-->
+
+
+						<!-- 3rd Row Shippping and Delivery Address -->
+						<!--	<div class="row justify-content-between ">
+								 Sender Detail Table 
+								<div class="col-md-6  my-2  ">
+									<div class="row differ">
+										<div class="col-md-12  mybg-secondary py-3">
+											<div class="head ">
+												Item Detail
+											</div>
+										</div>
+										<div class="col-md-12 mt-2">
+											<table class="table table-bordered">
+												<tbody>
+
+													<tr>
+														<td class="table-head">Name</td>
+														<td class="table-text">Mr.X</td>
+													</tr>
+													<tr>
+														<td class="table-head">Phone</td>
+														<td class="table-text">9001XXXX65</td>
+													</tr>
+													<tr>
+														<td class="table-head">Email Id</td>
+														<td class="table-text">me@kuldeepsaini.in</td>
+													</tr>
+													<tr>
+														<td class="table-head">AddressLine 1</td>
+														<td class="table-text">3L93E9100012</td>
+													</tr>
+													<tr>
+														<td class="table-head">AddressLine 2</td>
+														<td class="table-text">3L93E9100012</td>
+													</tr>
+													<tr>
+														<td class="table-head">Country</td>
+														<td class="table-text">India</td>
+													</tr>
+													<tr>
+														<td class="table-head">State</td>
+														<td class="table-text">No Idea</td>
+													</tr>
+													<tr>
+														<td class="table-head">District</td>
+														<td class="table-text">Hanumangrah Town</td>
+													</tr>
+													<tr>
+														<td class="table-head">City/Town</td>
+														<td class="table-text">Gangland Town</td>
+													</tr>
+													<tr>
+														<td class="table-head">Pincode/Zipcode</td>
+														<td class="table-text">335513</td>
+													</tr>
+													<tr>
+														<td class="table-head">Landmark</td>
+														<td class="table-text"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+
+								 Receiver Detail Table 
+								<div class="col-md-6  my-2">
+									<div class="row differ">
+										<div class="col-md-12  mybg-secondary py-3">
+											<div class="head ">
+												Receiver/Consignee Detail(s)
+											</div>
+										</div>
+										<div class="col-md-12 mt-2">
+											<table class="table table-bordered">
+												<tbody>
+
+													<tr>
+														<td class="table-head">Name</td>
+														<td class="table-text">Mr.X</td>
+													</tr>
+													<tr>
+														<td class="table-head">Phone</td>
+														<td class="table-text">9001XXXX65</td>
+													</tr>
+													<tr>
+														<td class="table-head">Email Id</td>
+														<td class="table-text">me@kuldeepsaini.in</td>
+													</tr>
+													<tr>
+														<td class="table-head">AddressLine 1</td>
+														<td class="table-text">3L93E9100012</td>
+													</tr>
+													<tr>
+														<td class="table-head">AddressLine 2</td>
+														<td class="table-text">3L93E9100012</td>
+													</tr>
+													<tr>
+														<td class="table-head">Country</td>
+														<td class="table-text">India</td>
+													</tr>
+													<tr>
+														<td class="table-head">State</td>
+														<td class="table-text">No Idea</td>
+													</tr>
+													<tr>
+														<td class="table-head">District</td>
+														<td class="table-text">Hanumangrah Town</td>
+													</tr>
+													<tr>
+														<td class="table-head">City/Town</td>
+														<td class="table-text">Gangland Town</td>
+													</tr>
+													<tr>
+														<td class="table-head">Pincode/Zipcode</td>
+														<td class="table-text">335513</td>
+													</tr>
+													<tr>
+														<td class="table-head">Landmark</td>
+														<td class="table-text"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+
+							</div>-->
+						<!-- 3rd Row End-->
+
+
+						<!-- 4th Row Shipment Detail Table  -->
+						<div class="row differ my-2">
+							<div class="col-md-12  mybg-secondary py-3">
+								<div class="head ">
+									Shipping Detail(s)
+								</div>
+							</div>
+							<div class="col-md-12 col-lg-12 px-1 py-0">
+								<table class="table table-bordered">
+									<tbody>
+										<tr>
+											<td class="table-head">Issued By</td>
+											<td class="table-text">N/A</td>
+											<td class="table-head">Booking Date</td>
+											<td class="table-text" th:text="${haulage.booking_date}"></td>
+										</tr>
+										<tr>
+
+											<td class="table-head">Tracking Code</td>
+											<td class="table-text" th:text="${haulage.trackingCode}"></td>
+											<td class="table-head">EWay Bill No.</td>
+											<td class="table-text" th:text="${haulage.eWay_billNo}"></td>
+										</tr>
+
+										<tr>
+											<td class="table-head">Expected Delivery</td>
+											<td class="table-text" th:text="${haulage.expected_DeliveryDate}"></td>
+											<td class="table-head">Haulage Service</td>
+											<td class="table-text" th:text="${haulage.haulageService}"></td>
+										</tr>
+										<tr>
+											<td class="table-head">Consignment Description</td>
+											<td class="table-text" th:text="${haulage.description}"></td>
+											<td class="table-head">Consignment Type</td>
+											<td lass="table-text" th:text="${haulage.consignment_type}"></td>
+										</tr>
+										<tr>
+											<td class="table-head">No. of Piece(s)</td>
+											<td class="table-text" th:text="${haulage.no_of_Pieces}"></td>
+											<td class="table-head">Haulage Mode</td>
+											<td class="table-text" th:text="${haulage.haulage_mode}"></td>
+										</tr>
+										<tr>
+
+											<td class="table-head">Hazardous Material ?</td>
+											<td class="table-text" th:text="${haulage.hazardous}"></td>
+											<td class="table-head">Haulage Center</td>
+											<td class="table-text" th:text="${haulage.haulage_centre}"></td>
+										</tr>
+										<tr>
+											<td class="table-head">Explanation</td>
+											<td class="table-text" th:text="${haulage.explaination}"></td>
+											<td class="table-head">Total Weight(gm)</td>
+											<td class="table-text" th:text="${haulage.total_weight}"></td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- 4th Row Shipment Detail Table End -->
+<!--
+
+						<div class="row differ my-2">
+							<div class="col-md-12  mybg-secondary py-3">
+								<div class="head ">
+									Item
+								</div>
+							</div>
+							<div class="col-md-12 col-lg-12 px-1 py-0">
+								<table class="table table-bordered">
+									<tbody>
+
+										<tr>
+
+											<td class="table-head"> Weight</td>
+																							haulage.reciever_District.state.Country.countryName
+
+											<td class="table-text" th:text="${haulage.HaulageItem.weight}"></td>
+
+											<td class="table-text"
+													th:text="${haulage.getHaulageItem() != null ? haulage.getHaulageItem().stream().filter(item -> item.id == haulage.id).findFirst().orElse(null).weight : 'N/A'}">
+												</td>
+												
+
+											<td class="table-head">Tax Type</td>
+											<td class="table-text" th:text="${haulage.Tax_type}"></td>
+										</tr>
+										<tr>
+											<td class="table-head">Tax %</td>
+											<td class="table-text" th:text="${haulage.Tax_Percentage}"></td>
+											<td class="table-head">Discount Amount (₦)</td>
+											<td class="table-text" th:text="${haulage.discount_in_amount}"></td>
+										</tr>
+										<tr>
+
+											<td class="table-head">Total Discount % Applied</td>
+											<td class="table-text" th:text="${haulage.discount_in_per}"></td>
+											<td class="table-head">Final Charges / Paid Amount (₦)</td>
+											<td class="table-text" th:text="${haulage.final_charges}"></td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</div>-->
+
+						<!-- 5th Row  Charges Row -->
+						<div class="row differ my-2">
+							<div class="col-md-12  mybg-secondary py-3">
+								<div class="head ">
+									Charges Details
+								</div>
+							</div>
+							<div class="col-md-12 col-lg-12 px-1 py-0">
+								<table class="table table-bordered">
+									<tbody>
+
+										<tr>
+											<td class="table-head">Haulage Charges (₦)</td>
+											<td class="table-text" th:text="${haulage.charges}"></td>
+											<td class="table-head">Tax Type</td>
+											<td class="table-text" th:text="${haulage.Tax_type}"></td>
+										</tr>
+										<tr>
+											<td class="table-head">Tax %</td>
+											<td class="table-text" th:text="${haulage.Tax_Percentage}"></td>
+											<td class="table-head">Discount Amount (₦)</td>
+											<td class="table-text" th:text="${haulage.discount_in_amount}"></td>
+										</tr>
+										<tr>
+
+											<td class="table-head">Total Discount % Applied</td>
+											<td class="table-text" th:text="${haulage.discount_in_per}"></td>
+											<td class="table-head">Final Charges / Paid Amount (₦)</td>
+											<td class="table-text" th:text="${haulage.final_charges}"></td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+						</main>
+
+
+						<script
+							src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+						<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+						<!-- Custom Js Files  -->
+						<script src="./js/custom.js"></script>
+
+
+						<!-- Go Back Button JS -->
+						<script>
+							function goBack() {
+								window.history.back();
+							}
+						</script>
+
+</body>
+
+</html>
